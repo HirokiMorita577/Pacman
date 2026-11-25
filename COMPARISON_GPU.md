@@ -1,5 +1,36 @@
 # 比較実験のGPU実行
 
+## Windows PC で Colab の途中チェックポイントを引き継ぐ
+
+Windows の CUDA 環境へ移す場合は `resume_local.py` を使う。Colab の保存先から
+`results/factors/plan.json` と、未完了の試行ごとの `manifest.json`、
+`backup_state.json`、そのレシートが指す `recovery_A.pt.gz` または
+`recovery_B.pt.gz` をローカルにコピーする。試行フォルダー名は Drive 上と揃える。
+ファイルは自身の信頼できる実験から取得する。
+
+```powershell
+$pcPython = "$env:LOCALAPPDATA\Programs\Python\Python313\python.exe"
+& $pcPython -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --index-url https://download.pytorch.org/whl/cu130 "torch>=2.12.0"
+.\.venv\Scripts\python.exe -m pip install -r requirements-comparison.txt
+$env:PACMAN_DEVICE = "cuda"
+$env:PACMAN_TORCH_THREADS = "1"
+$trials = (Get-ChildItem output/local_resume_source -Directory).FullName
+.\.venv\Scripts\python.exe resume_local.py --source-plan output/local_resume_source/plan.json --source-trial $trials --out output/local_resume_rtx3060ti
+```
+
+上記の torch 指定を使う場合は CUDA 版の配布インデックスと互換ドライバーが必要。
+`--verify-only` では PyTorch を使わずに計画、試行 manifest、ソース、チェックポイントの SHA-256 を検査できる。
+`--prepare-only` で全チェックポイントの照合と配置だけを先に実行できる。
+学習は一試行ずつ実行する。同じ引数で再実行するとローカルに保存された最新地点から再開する。
+
+`migration.json` に復元したエピソード・環境ステップ、移行元と移行先の manifest、
+元の計画とチェックポイントの SHA-256 が残る。ネットワーク、optimizer、
+再生バッファ、乱数状態と学習履歴を引き継ぐ。GPU と実行環境が変わるため、
+この継続実験の成績は Colab の統合比較に合算せず、ローカル出力先に保存する。
+
+## 元の Colab 実験
+
 高性能GPU・ハイメモリのColabランタイムを使用する。実際のGPU機種は hardware.json に記録する。
 全学習方式（DQN、HRA、SARSA、PPO等）のネットワーク、更新用テンソルをCUDAに配置する。
 ランダム・経路探索の基準方式とパックマン環境はCPUで実行する。

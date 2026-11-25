@@ -15,3 +15,4 @@ output/ghost4_retrain_*/
 output/ghost4_round[234]_*/
 output/comparison_*_smoke*/
 output/pytest_*/
+output/local_resume*/

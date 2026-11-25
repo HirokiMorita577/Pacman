@@ -172,6 +172,11 @@ def write_index(out, rows, results, planned):
     complete = sum(len(result["finals"]) == planned for result in results.values())
     total = sum(len(result["finals"]) for result in results.values())
     trials = len(results) * planned
+    local = ""
+    if (out / "local_checkpoint_evaluation.png").is_file() and (out / "local_checkpoint_evaluation.csv").is_file():
+        local = ('<p>ローカル実験の途中モデル8件の開発評価 · '
+                 '<a href="local_checkpoint_evaluation.png">グラフ</a> · '
+                 '<a href="local_checkpoint_evaluation.csv">評価 CSV</a></p>')
     links = "\n".join(
         f'<tr><th scope="row">{html.escape(title)} <small>{html.escape(name)}</small></th>'
         f'<td>{n_final}/{n_members}</td><td>{n_curve}/{n_members}</td>'
@@ -191,6 +196,7 @@ small{{display:block;color:#4b617b;font-weight:normal}}thead{{background:#eaf1f8
 <p>2026年11月25日 JST の Colab 保存データ。{len(rows)}比較項目、{trials:,}予定試行のうち
 最終評価 {total:,}件、学習seedが揃った条件 {complete}/{len(results)}件。</p>
 <p><a href="score_clear_tradeoff.png">スコア対クリア率</a> · <a href="power_gamma_heatmap.png">パワーえさ報酬×割引率</a> · <a href="final_trial_metrics.csv">試行別の最終評価 CSV</a></p>
+{local}
 <p>各比較項目の分母は予定条件数。完了数は全予定seedに最終評価がある条件、
 曲線数は全予定seedに共通する学習エピソード範囲がある条件。条件は複数項目に登場する場合があります。</p>
 <table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>エピソード別</th></tr></thead>

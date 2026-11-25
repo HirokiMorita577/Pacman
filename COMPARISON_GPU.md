@@ -37,6 +37,16 @@ $trials = (Get-ChildItem output/local_resume_source -Directory).FullName
 再生バッファ、乱数状態と学習履歴を引き継ぐ。GPU と実行環境が変わるため、
 この継続実験の成績は Colab の統合比較に合算せず、ローカル出力先に保存する。
 
+学習途中の重みを調べる場合は、チェックポイントのコピーをCPUで開き、
+開発用の共通評価seedで探索なし評価を行う。
+
+```powershell
+.\.venv\Scripts\python.exe evaluate_local_checkpoints.py --runs output/local_resume_rtx3060ti/runs --out output/local_resume_rtx3060ti/checkpoint_evaluation --workers 6
+```
+
+評価結果には保存時点の環境ステップ、エピソード数、チェックポイントの SHA-256 を記録する。
+この開発評価は、学習終了後の未使用seedによる最終評価と別に保存する。
+
 ## 元の Colab 実験
 
 高性能GPU・ハイメモリのColabランタイムを使用する。実際のGPU機種は hardware.json に記録する。

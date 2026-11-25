@@ -178,6 +178,8 @@ def write_index(out, rows, results, planned):
                  '<a href="local_checkpoint_evaluation.png">グラフ</a> · '
                  '<a href="local_checkpoint_evaluation.csv">評価 CSV</a></p>')
     has_loss = (out / "loss_coverage.csv").is_file()
+    decay_link = ('<p><a href="alpha_epsilon_decay.png">学習率と探索率を0まで下げる設定案</a></p>'
+                  if (out / "alpha_epsilon_decay.png").is_file() else "")
     has_episode_means = (out / "condition_averages.csv").is_file()
     loss_intro = ""
     if has_loss:
@@ -213,6 +215,7 @@ small{{display:block;color:#4b617b;font-weight:normal}}thead{{background:#eaf1f8
 <p><a href="score_clear_tradeoff.png">スコア対クリア率</a> · <a href="power_gamma_heatmap.png">パワーえさ報酬×割引率</a> · <a href="final_trial_metrics.csv">試行別の最終評価 CSV</a></p>
 {local}
 {loss_intro}
+{decay_link}
 <p>各比較項目の分母は予定条件数。完了数は全予定seedに最終評価がある条件、
 曲線数は全予定seedに共通する学習エピソード範囲がある条件。条件は複数項目に登場する場合があります。</p>
 <table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>途中評価</th>{loss_header}{episode_header}</tr></thead>

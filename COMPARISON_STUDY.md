@@ -82,6 +82,24 @@ all_plan.json が確定計画。Colab切断後は再接続して同じセルを�
 --search-methods-file methods.json でPSO係数を追加できる。
 例：{"pso_custom":{"w_start":0.9,"w_end":0.3,"c1":1.7,"c2":1.7}}
 
+## 発表用PSO比較
+
+Double DQN の報酬と環境を基準設定に固定し、学習率 α、割引率 γ、最終探索率 ε を同時に調整する。
+PSO、ランダム探索、予算内グリッド探索には候補16件ずつを割り当て、未調整条件も評価する。
+候補ごとに3学習seedで各2万環境ステップ学習し、開発評価の平均クリア率で選ぶ。
+探索seedは41、42、43。選択後は別の5学習seed（606、707、808、909、1001）で各20万ステップを
+最初から学習し、共通の未使用評価盤面でクリア率とゲームスコアを記録する。
+
+- 探索対象は α が 0.00001〜0.003（対数尺度）、γ が 0.8〜0.999、最終 ε が 0.001〜0.2。
+- 探索図では、候補の学習に使った累計エピソード数と、開発評価クリア率の過去最高を示す。
+- 最終比較図では、方式ごとのスコアとクリア率を示す。学習seedに加えて探索seedを表示し、同じ探索で選んだ設定からの再学習を独立した探索として数えない。
+- 選ばれた α、γ、ε は別パネルか表に示す。固定値を振った既存の因子比較と区別する。
+
+計画を確認した時点では未実行。上限は候補学習882万、最終再学習1,200万環境ステップで、評価プレイは別。
+以下は学習を開始せず計画だけを出力する。
+
+    python comparison_study.py all --stages search --plan-only --suites learning_rate gamma epsilon_end --out output/local_resume_pso_plan --algorithms double_dqn --spaces hyperparameters --methods baseline random grid pso --objectives clear_rate --search-seeds 41 42 43 --train-seeds 101 202 303 --final-train-seeds 606 707 808 909 1001 --candidates 16 --particles 4 --search-steps 20000
+
 ## 結果と読み方
 
 figures/：PNG。summary.csv：最終指標。evaluation_episodes.csv：評価全プレイ。

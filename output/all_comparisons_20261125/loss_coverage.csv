@@ -1,0 +1,371 @@
+﻿comparison,label,condition,algorithm,loss,seeds_with_loss,planned_seeds
+reward_power,reference (50),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,0,c12539bd1520708f0e88,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,10,94403f9c1106aa24e126,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,25,5add4e4c85f4653ce287,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,100,bc0411e7ceb832229e14,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,200,a3a69f7481a4d4d68536,double_dqn,TD 損失・Smooth L1,5,5
+reward_power,400,76594b6c2194602fb7f2,double_dqn,TD 損失・Smooth L1,5,5
+gamma,reference (0.95),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+gamma,0.8,26ffeaf7898daf55c680,double_dqn,TD 損失・Smooth L1,5,5
+gamma,0.9,e5f457644d320ccc6033,double_dqn,TD 損失・Smooth L1,5,5
+gamma,0.99,9844a30ccbdbe18ee347,double_dqn,TD 損失・Smooth L1,5,5
+gamma,0.995,d2024702d5ec667efaea,double_dqn,TD 損失・Smooth L1,5,5
+gamma,0.999,0ac22cb6cfa53cf10c87,double_dqn,TD 損失・Smooth L1,5,5
+algorithms,reference (double_dqn),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+algorithms,q_learning,f35949d226da7a3bc8bc,q_learning,TD 損失・Smooth L1,5,5
+algorithms,sarsa,24fafae3acbe8568bc24,sarsa,TD 損失・Smooth L1,5,5
+algorithms,expected_sarsa,86f84e54e95d81c5c762,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithms,dqn,749868f4ef8494ecd78e,dqn,TD 損失・Smooth L1,5,5
+algorithms,replay_sarsa,c6d75427be4732b22ad1,replay_sarsa,TD 損失・Smooth L1,5,5
+algorithms,hra,f0d61a2a27c7feac8cd0,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithms,dueling_dqn,c56eed6432a3c1bead44,dueling_dqn,TD 損失・Smooth L1,5,5
+algorithms,dueling_double_dqn,68dadf0a5beb2bb3c8f0,dueling_double_dqn,TD 損失・Smooth L1,5,5
+algorithms,ppo,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+algorithms,random,80ea109bd80b4848d35c,random,,0,5
+algorithms,greedy_food,80cbd2020b8a1a0d3846,greedy_food,,0,5
+algorithms,safe_food,5df6465246ea3a1261d3,safe_food,,0,5
+online_td,q_learning,f35949d226da7a3bc8bc,q_learning,TD 損失・Smooth L1,5,5
+online_td,sarsa,24fafae3acbe8568bc24,sarsa,TD 損失・Smooth L1,5,5
+online_td,expected_sarsa,86f84e54e95d81c5c762,expected_sarsa,TD 損失・Smooth L1,5,5
+reward_sets,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,old,3d399abfa61cdc2c23a5,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,designed,1fdb5d155eaddefd62bd,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,game_score_only,21dadf56fd297f55228b,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,food_only,2cf1789b103276423877,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,sparse_clear,f1131264bf98775fe9ee,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,score_and_death,aa9b9ab7f0600cd8c145,double_dqn,TD 損失・Smooth L1,5,5
+reward_sets,no_shaping,9806e3972c9286314fa5,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"reference (power=50,gamma=0.95)",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=0,gamma=0.9",b20968f2dc7991bbe2c0,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=0,gamma=0.95",c12539bd1520708f0e88,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=0,gamma=0.99",356e0fa0bbd36fe4d1d8,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=0,gamma=0.995",d3c1efea5cb6ff84f257,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=10,gamma=0.9",73faa6c09de512c3652e,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=10,gamma=0.95",94403f9c1106aa24e126,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=10,gamma=0.99",37b9f159bcc9428c8532,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=10,gamma=0.995",3203abe33170c9667ce5,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=50,gamma=0.9",e5f457644d320ccc6033,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=50,gamma=0.99",9844a30ccbdbe18ee347,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=50,gamma=0.995",d2024702d5ec667efaea,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=200,gamma=0.9",eaee949abb18151853d9,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=200,gamma=0.95",a3a69f7481a4d4d68536,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=200,gamma=0.99",11209367acac0d9d749b,double_dqn,TD 損失・Smooth L1,5,5
+power_gamma,"power=200,gamma=0.995",73961bc6e1dced1f53d0,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"reference (double_dqn,power=50)",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"dqn,power=0",febff05cdc3e90a6be13,dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"dqn,power=10",1b6e1e3284767ae390a3,dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"dqn,power=50",749868f4ef8494ecd78e,dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"dqn,power=200",153716ddf7e6639be414,dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"double_dqn,power=0",c12539bd1520708f0e88,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"double_dqn,power=10",94403f9c1106aa24e126,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"double_dqn,power=200",a3a69f7481a4d4d68536,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_power,"sarsa,power=0",42d37c078bcf62f0f776,sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"sarsa,power=10",b16a21ef91c0ad06b276,sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"sarsa,power=50",24fafae3acbe8568bc24,sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"sarsa,power=200",4cb1209a5aea7b6caa80,sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"expected_sarsa,power=0",8505acba77a011d57039,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"expected_sarsa,power=10",db7bc1cf003c63e9e765,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"expected_sarsa,power=50",86f84e54e95d81c5c762,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"expected_sarsa,power=200",144775366e0bbcda1c40,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_power,"hra,power=0",c2536231ac36ec57a298,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_power,"hra,power=10",8a901f2bdcde612ad370,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_power,"hra,power=50",f0d61a2a27c7feac8cd0,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_power,"hra,power=200",157b9ea14e2b8fe6e7e8,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_power,"ppo,power=0",b5e40bdf424d0786b76c,ppo,PPO 複合損失,5,5
+algorithm_power,"ppo,power=10",81082e9d4a9c4f1ee957,ppo,PPO 複合損失,5,5
+algorithm_power,"ppo,power=50",d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+algorithm_power,"ppo,power=200",270f279a1bbd4d902bd7,ppo,PPO 複合損失,5,5
+algorithm_gamma,"reference (double_dqn,gamma=0.95)",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"dqn,gamma=0.9",828a53e4680f396306d0,dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"dqn,gamma=0.95",749868f4ef8494ecd78e,dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"dqn,gamma=0.99",cab11c8d2c1fc6614b57,dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"dqn,gamma=0.995",5bcf16577b6a9e34c8a7,dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"double_dqn,gamma=0.9",e5f457644d320ccc6033,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"double_dqn,gamma=0.99",9844a30ccbdbe18ee347,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"double_dqn,gamma=0.995",d2024702d5ec667efaea,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_gamma,"sarsa,gamma=0.9",cc3ad400d12de9c5f5d9,sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"sarsa,gamma=0.95",24fafae3acbe8568bc24,sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"sarsa,gamma=0.99",da319837e6a974ecf9bc,sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"sarsa,gamma=0.995",f73ea49a34dc16b4a5bc,sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"expected_sarsa,gamma=0.9",a672d99c88c16853b40c,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"expected_sarsa,gamma=0.95",86f84e54e95d81c5c762,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"expected_sarsa,gamma=0.99",dda25e9250a19013c78f,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"expected_sarsa,gamma=0.995",3ec6753222015dcb026d,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_gamma,"hra,gamma=0.9",6076145412749b5a5ca9,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_gamma,"hra,gamma=0.95",f0d61a2a27c7feac8cd0,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_gamma,"hra,gamma=0.99",4ebb6baa65430b90794a,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_gamma,"hra,gamma=0.995",996805df3069e3d744f3,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_gamma,"ppo,gamma=0.9",47436f233bb1585fe029,ppo,PPO 複合損失,5,5
+algorithm_gamma,"ppo,gamma=0.95",d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+algorithm_gamma,"ppo,gamma=0.99",303f89235cf20ba592ac,ppo,PPO 複合損失,5,5
+algorithm_gamma,"ppo,gamma=0.995",9e8d3ed2d3d506824f08,ppo,PPO 複合損失,5,5
+replay_td,reference (double_dqn),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+replay_td,dqn,749868f4ef8494ecd78e,dqn,TD 損失・Smooth L1,5,5
+replay_td,replay_sarsa,c6d75427be4732b22ad1,replay_sarsa,TD 損失・Smooth L1,5,5
+reward_dot,reference (10),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot,0,535a203df61e42436e9d,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot,2,91622be83b744aadd96c,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot,5,6dedb4141b5a71f28832,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot,20,141f2752b2418eb5dcd4,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot_progress,reference (0.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot_progress,1,86f15e4b673b243f47e8,double_dqn,TD 損失・Smooth L1,5,5
+reward_dot_progress,5,d8f1866af21afd120b2f,double_dqn,TD 損失・Smooth L1,5,5
+reward_approach_dot,reference (1.5),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_approach_dot,0.0,d4f0d3f30d84067b9df8,double_dqn,TD 損失・Smooth L1,5,5
+reward_approach_dot,0.75,61bdc50748d0e2d6a650,double_dqn,TD 損失・Smooth L1,5,5
+reward_approach_dot,3.0,3031449f0c2e641fc1c0,double_dqn,TD 損失・Smooth L1,5,5
+reward_approach_dot,7.5,335ca7fecf1a6af6a395,double_dqn,TD 損失・Smooth L1,5,5
+reward_leave_dot,reference (0.5),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_leave_dot,0.0,1e1e5e1b2ea6902628a7,double_dqn,TD 損失・Smooth L1,5,5
+reward_leave_dot,0.25,c950c428cf2f96d46064,double_dqn,TD 損失・Smooth L1,5,5
+reward_leave_dot,1.0,ef72c3a14279c083a3a4,double_dqn,TD 損失・Smooth L1,5,5
+reward_leave_dot,2.5,052028ea820a2cba8c44,double_dqn,TD 損失・Smooth L1,5,5
+reward_clear,reference (0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_clear,100,502b5e58506da67fb572,double_dqn,TD 損失・Smooth L1,5,5
+reward_clear,500,ad9b9c0e850bdbb4bfe7,double_dqn,TD 損失・Smooth L1,5,5
+reward_clear,1560,895a5421568707580069,double_dqn,TD 損失・Smooth L1,5,5
+reward_clear,5000,24f2383ee1569d5a5400,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,reference (200),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,0,eac5eec24a83d7e4d29f,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,50,d4350489310b9d75629b,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,100,a037cb53c4aba414f494,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,400,bdfc93cd79dd2bbd2e50,double_dqn,TD 損失・Smooth L1,5,5
+reward_eat_ghost,800,51aa7a4c2a6d2713335d,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,reference (100),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,0,79d92976d557364484bb,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,25,af5e6f38b7094c43bdfb,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,500,ec5309a70795b2c42a47,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,1560,c7a6557fae7f7684a733,double_dqn,TD 損失・Smooth L1,5,5
+reward_death,15600,6c416cf8a95dcdaa2a87,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_adjacent,reference (7.5),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_adjacent,0.0,f752be375ea467200646,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_adjacent,3.75,ce38e530276fb71b2bad,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_adjacent,15.0,98bab54c4e5635b4eb85,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_adjacent,37.5,223fb25b9be9df1213fb,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_near,reference (2.5),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_near,0.0,c7e9478eb29c6e352223,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_near,1.25,91c210cc35f62c2ebcdd,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_near,5.0,c64d7514ea11f3d232a3,double_dqn,TD 損失・Smooth L1,5,5
+reward_ghost_near,12.5,238e7ae40a1c99e12909,double_dqn,TD 損失・Smooth L1,5,5
+reward_chase_blue,reference (1.5),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_chase_blue,0.0,25599e8f5361ab124d61,double_dqn,TD 損失・Smooth L1,5,5
+reward_chase_blue,0.75,396a8d76ba2d2734d1a3,double_dqn,TD 損失・Smooth L1,5,5
+reward_chase_blue,3.0,bdf9ec5d1bbed0f5cc65,double_dqn,TD 損失・Smooth L1,5,5
+reward_chase_blue,7.5,d33bdadd91f4ac377636,double_dqn,TD 損失・Smooth L1,5,5
+reward_time,reference (0.1),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_time,0,106e333b0329b312decb,double_dqn,TD 損失・Smooth L1,5,5
+reward_time,0.02,6cfd3e4e20d553258f75,double_dqn,TD 損失・Smooth L1,5,5
+reward_time,0.5,7b1b14b6db2f691f4bd9,double_dqn,TD 損失・Smooth L1,5,5
+reward_time,1,b798225cd67b525e31f8,double_dqn,TD 損失・Smooth L1,5,5
+reward_loop,reference (10.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_loop,0.0,f770bffd4e596b483224,double_dqn,TD 損失・Smooth L1,5,5
+reward_loop,5.0,b576aa183e9dd291f344,double_dqn,TD 損失・Smooth L1,5,5
+reward_loop,20.0,20175b0ee72c6bdcebf5,double_dqn,TD 損失・Smooth L1,5,5
+reward_loop,50.0,d4caeafaf6d63ed92a6a,double_dqn,TD 損失・Smooth L1,5,5
+reward_oscillation,reference (15.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_oscillation,0.0,115a932513c7147a953a,double_dqn,TD 損失・Smooth L1,5,5
+reward_oscillation,7.5,c0fcd6004f9d3a2a1096,double_dqn,TD 損失・Smooth L1,5,5
+reward_oscillation,30.0,8d35dbbaf4ef8471e57f,double_dqn,TD 損失・Smooth L1,5,5
+reward_oscillation,75.0,dcf085bfe819de6513db,double_dqn,TD 損失・Smooth L1,5,5
+reward_heading,reference (0.75),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_heading,0.0,a0a1b4a20722dd740804,double_dqn,TD 損失・Smooth L1,5,5
+reward_heading,0.375,26885dd8c3c0028b4bb8,double_dqn,TD 損失・Smooth L1,5,5
+reward_heading,1.5,e571343263f378cbcbab,double_dqn,TD 損失・Smooth L1,5,5
+reward_heading,3.75,08728f9d1f09b39a42eb,double_dqn,TD 損失・Smooth L1,5,5
+reward_new_cell,reference (1.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_new_cell,0.0,4621a60d78a7afee9013,double_dqn,TD 損失・Smooth L1,5,5
+reward_new_cell,0.5,52e2a8373ea4c7b6e435,double_dqn,TD 損失・Smooth L1,5,5
+reward_new_cell,2.0,bd57c01179fb2e8502a0,double_dqn,TD 損失・Smooth L1,5,5
+reward_new_cell,5.0,e03f9eec865aabb64f4f,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,reference (dot_progress),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,dot,535a203df61e42436e9d,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,power,c12539bd1520708f0e88,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,approach_dot,d4f0d3f30d84067b9df8,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,leave_dot,1e1e5e1b2ea6902628a7,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,eat_ghost,eac5eec24a83d7e4d29f,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,death,79d92976d557364484bb,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,ghost_adjacent,f752be375ea467200646,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,ghost_near,c7e9478eb29c6e352223,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,chase_blue,25599e8f5361ab124d61,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,time,106e333b0329b312decb,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,loop,f770bffd4e596b483224,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,oscillation,115a932513c7147a953a,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,heading,a0a1b4a20722dd740804,double_dqn,TD 損失・Smooth L1,5,5
+reward_ablation,new_cell,4621a60d78a7afee9013,double_dqn,TD 損失・Smooth L1,5,5
+learning_rate,reference (0.0005),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+learning_rate,1e-05,db26e459bc6195efe3e9,double_dqn,TD 損失・Smooth L1,5,5
+learning_rate,0.0001,2231862267222457d1e1,double_dqn,TD 損失・Smooth L1,5,5
+learning_rate,0.001,243b1c56a7cd0a584d39,double_dqn,TD 損失・Smooth L1,5,5
+learning_rate,0.003,563dcef8d82ed4d55125,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,reference (0.0248),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,0,5563dddc2e760622b499,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,0.01,9c3e4e960f65149687cd,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,0.05,30f690d416134b3b08b3,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,0.1,9cb8891479fa514ac8ac,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_end,0.2,da56ebe3838976bed7f6,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_start,reference (1.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_start,0.25,15fd37dff8caa1349948,double_dqn,TD 損失・Smooth L1,5,5
+epsilon_start,0.5,1c4fb6cc633918dc3b0b,double_dqn,TD 損失・Smooth L1,5,5
+exploration_steps,reference (80000),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+exploration_steps,10000,95c53dd059429806fdf9,double_dqn,TD 損失・Smooth L1,5,5
+exploration_steps,40000,4f35393160557c5ca1ec,double_dqn,TD 損失・Smooth L1,5,5
+exploration_steps,160000,7869c4801ebfca4c5292,double_dqn,TD 損失・Smooth L1,5,5
+exploration_schedule,reference (exponential),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+exploration_schedule,linear,1d123cf81de4c309fd79,double_dqn,TD 損失・Smooth L1,5,5
+exploration_schedule,cosine,1d79fa8d0cc6c6c68e7a,double_dqn,TD 損失・Smooth L1,5,5
+exploration_schedule,constant,ea52cfeeb53bf3a2e65a,double_dqn,TD 損失・Smooth L1,5,5
+training_budget,reference (200000),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+training_budget,50000,d406436fced08001898a,double_dqn,TD 損失・Smooth L1,5,5
+training_budget,100000,b0463687ff3c8bca5492,double_dqn,TD 損失・Smooth L1,5,5
+training_budget,400000,4ef7099fa59887c8c569,double_dqn,TD 損失・Smooth L1,5,5
+training_budget,800000,0c494e955ab491c1e1b9,double_dqn,TD 損失・Smooth L1,5,5
+batch_size,reference (128),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+batch_size,32,6d05c210c30c72b37779,double_dqn,TD 損失・Smooth L1,5,5
+batch_size,64,a53005eaacb0014600e1,double_dqn,TD 損失・Smooth L1,5,5
+batch_size,256,db55cad7463ad5f149f4,double_dqn,TD 損失・Smooth L1,5,5
+replay_capacity,reference (100000),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+replay_capacity,10000,9600bed362aa75afc57d,double_dqn,TD 損失・Smooth L1,5,5
+replay_capacity,50000,1cbe0499febe7474c758,double_dqn,TD 損失・Smooth L1,5,5
+replay_capacity,200000,0b0f9dff23b8677bff6b,double_dqn,TD 損失・Smooth L1,5,5
+warmup,reference (128),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+warmup,1000,6e4a7c39379f30396c27,double_dqn,TD 損失・Smooth L1,5,5
+warmup,5000,9742123a0ae78c611c0d,double_dqn,TD 損失・Smooth L1,5,5
+target_update,reference (1000),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+target_update,100,fcfb2f8639907dffc7f1,double_dqn,TD 損失・Smooth L1,5,5
+target_update,500,63398edcb73a6eee1644,double_dqn,TD 損失・Smooth L1,5,5
+target_update,5000,f58830da108b0b8e078d,double_dqn,TD 損失・Smooth L1,5,5
+target_soft_update,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+target_soft_update,0.001,c3ac7e4c648c3e09b6d9,double_dqn,TD 損失・Smooth L1,5,5
+target_soft_update,0.005,1bbd0e6119fc7b2c8387,double_dqn,TD 損失・Smooth L1,5,5
+target_soft_update,0.01,4c9896e0257984c08d3b,double_dqn,TD 損失・Smooth L1,5,5
+target_soft_update,0.05,4b8ce14ba8d44e75f5d8,double_dqn,TD 損失・Smooth L1,5,5
+train_every,reference (1),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+train_every,4,ba285031a1b85a13da7d,double_dqn,TD 損失・Smooth L1,5,5
+train_every,8,4a17c7308c5db7d901af,double_dqn,TD 損失・Smooth L1,0,5
+updates_per_step,reference (1),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+updates_per_step,2,c5e728cd90c99460bf92,double_dqn,TD 損失・Smooth L1,0,5
+updates_per_step,4,c365c05e4aaec52a69b1,double_dqn,TD 損失・Smooth L1,0,5
+replay_ablation,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+replay_ablation,no_replay,1c2c3aa46295e076072b,double_dqn,TD 損失・Smooth L1,0,5
+replay_ablation,no_target,afedc4a464fb38a15d95,double_dqn,TD 損失・Smooth L1,0,5
+replay_ablation,online,a6462f82a268e383bef3,double_dqn,TD 損失・Smooth L1,0,5
+network,"reference ([512, 256, 128])",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+network,"[64, 32]",ef28863c4b0532ddf05b,double_dqn,TD 損失・Smooth L1,0,5
+network,"[128, 64]",d76b04576e20eb8342dd,double_dqn,TD 損失・Smooth L1,0,5
+network,"[256, 128]",f7f92545f8a752a92f0c,double_dqn,TD 損失・Smooth L1,0,5
+network,"[1024, 512, 256]",3dd8ee72258a462768d0,double_dqn,TD 損失・Smooth L1,0,5
+activation,reference (relu),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+activation,tanh,6ea1faeec4efbf484b09,double_dqn,TD 損失・Smooth L1,0,5
+activation,leaky_relu,b04f887108e1839471be,double_dqn,TD 損失・Smooth L1,0,5
+optimizer,reference (adam),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+optimizer,rmsprop,a48e364b634a8ea3d2e2,double_dqn,TD 損失・Smooth L1,0,5
+optimizer,sgd,a029d1d2bbaa3369c5e9,double_dqn,TD 損失・Smooth L1,0,5
+loss,reference (huber),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+loss,mse,af9dc64056dafe2d470c,double_dqn,TD 損失・MSE,0,5
+gradient_clip,reference (1.0),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+gradient_clip,None,401f688b93e82eec182b,double_dqn,TD 損失・Smooth L1,0,5
+gradient_clip,0.5,93f0be4d8ad75babeb6c,double_dqn,TD 損失・Smooth L1,0,5
+gradient_clip,5.0,267ce62cf8eb19432e3c,double_dqn,TD 損失・Smooth L1,0,5
+reward_normalization,reference (pellet),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_normalization,none,5865f6a9f20793305f41,double_dqn,TD 損失・Smooth L1,0,5
+reward_normalization,fixed100,76e91cc68e8dd7d62100,double_dqn,TD 損失・Smooth L1,0,5
+reward_clipping,reference (None),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+reward_clipping,1.0,607a7f4f99288a2bb2e3,double_dqn,TD 損失・Smooth L1,0,5
+reward_clipping,5.0,2c65b35925adf0ef4a8a,double_dqn,TD 損失・Smooth L1,0,5
+action_mask,reference (True),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+action_mask,False,17e288b96aaeb7636bbc,double_dqn,TD 損失・Smooth L1,0,5
+truncation,reference (True),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+truncation,False,ac817ec24409974f206e,double_dqn,TD 損失・Smooth L1,0,5
+ghost_count,reference (4),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+ghost_count,1,2c2d816f034d65472927,double_dqn,TD 損失・Smooth L1,0,5
+ghost_count,2,d93344fcd567c2e06129,double_dqn,TD 損失・Smooth L1,0,5
+ghost_count,3,c02309c7e00ddbde2971,double_dqn,TD 損失・Smooth L1,0,5
+ghost_policy,reference (classic),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+ghost_policy,bfs,8a1b488d66941f795d45,double_dqn,TD 損失・Smooth L1,0,5
+ghost_free,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+ghost_free,False,260a30a9cda8170f5ed5,double_dqn,TD 損失・Smooth L1,0,5
+ghost_free,True,de45fd5b3a8b0ab57adc,double_dqn,TD 損失・Smooth L1,0,5
+lives,reference (3),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+lives,1,f8195f103c56c78cde57,double_dqn,TD 損失・Smooth L1,0,5
+lives,5,05a8c7b0d7c9fc89a0f4,double_dqn,TD 損失・Smooth L1,0,5
+lives_observation,reference (True),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+lives_observation,False,7e33c78e7e347592c0d8,double_dqn,TD 損失・Smooth L1,0,5
+episode_limit,reference (1000),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+episode_limit,250,714e0bcab7a9f070bdb6,double_dqn,TD 損失・Smooth L1,0,5
+episode_limit,500,244c15f200d381aaf370,double_dqn,TD 損失・Smooth L1,0,5
+episode_limit,2000,70ec0b43d328cc64b4fa,double_dqn,TD 損失・Smooth L1,0,5
+observations,reference (lookahead),3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+observations,legacy,c84c23198ff31f47bf0f,double_dqn,TD 損失・Smooth L1,0,5
+observations,tactical,025d15e6f0870590e923,double_dqn,TD 損失・Smooth L1,0,5
+observations,safe,f48897fa9f0c4016acf0,double_dqn,TD 損失・Smooth L1,0,5
+observations,route_legacy,ca8b06fa71d39c0dc1d7,double_dqn,TD 損失・Smooth L1,0,5
+observations,route_v2,66b1e3206da88f0f8a99,double_dqn,TD 損失・Smooth L1,0,5
+fear_timing,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+fear_timing,False,88ea95a26efc9e7e3689,double_dqn,TD 損失・Smooth L1,0,5
+fear_timing,True,e96ed4e9f29d1a3e22b9,double_dqn,TD 損失・Smooth L1,0,5
+leave_dot_fix,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+leave_dot_fix,False,f4196655ac991ad57572,double_dqn,TD 損失・Smooth L1,0,5
+leave_dot_fix,True,4ce1bcc7576aface9141,double_dqn,TD 損失・Smooth L1,0,5
+safety_ablation,reference,3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+safety_ablation,no_area,a24b0e1b403d1d915ed8,double_dqn,TD 損失・Smooth L1,0,5
+safety_ablation,no_dots,4c9b5e7d49e85f1f5b20,double_dqn,TD 損失・Smooth L1,0,5
+safety_ablation,no_margin,d39e59a4a8598d1410f4,double_dqn,TD 損失・Smooth L1,0,5
+ppo_lambda,0.8,79768f80ff865dc17943,ppo,PPO 複合損失,0,5
+ppo_lambda,0.95,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_lambda,1.0,a6abfc0043d60de7bef1,ppo,PPO 複合損失,0,5
+ppo_clip,0.1,f15d331f0fd3cfdfe0f8,ppo,PPO 複合損失,0,5
+ppo_clip,0.2,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_clip,0.3,eefbd557e32d620af39a,ppo,PPO 複合損失,0,5
+ppo_entropy,0.0,5ad822a8cd18e6473b49,ppo,PPO 複合損失,0,5
+ppo_entropy,0.01,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_entropy,0.05,0007f736f94354590da7,ppo,PPO 複合損失,0,5
+ppo_rollout,128,50151723989abd999606,ppo,PPO 複合損失,0,5
+ppo_rollout,512,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_rollout,2048,b13c0e27cacfec32431f,ppo,PPO 複合損失,0,5
+ppo_epochs,1,c7e496917b4e774b3240,ppo,PPO 複合損失,0,5
+ppo_epochs,4,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_epochs,8,a803c1099456db9f4a53,ppo,PPO 複合損失,0,5
+ppo_value,0.25,a9d9103e63c1f40aa233,ppo,PPO 複合損失,0,5
+ppo_value,0.5,d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+ppo_value,1.0,f7d3e253b3a96093d197,ppo,PPO 複合損失,0,5
+death_clear,"reference (death=100,clear=0)",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=25,clear=0",af5e6f38b7094c43bdfb,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=25,clear=500",474f8dfa60731404648f,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=25,clear=1560",35765b12dd03c3a6febe,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=25,clear=5000",aeef09fa5f2f01b829b9,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=100,clear=500",ad9b9c0e850bdbb4bfe7,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=100,clear=1560",895a5421568707580069,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=100,clear=5000",24f2383ee1569d5a5400,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=500,clear=0",ec5309a70795b2c42a47,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=500,clear=500",4e91557894a9c14befa4,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=500,clear=1560",1fdb5d155eaddefd62bd,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=500,clear=5000",3f7108d3229e6729767f,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=1560,clear=0",c7a6557fae7f7684a733,double_dqn,TD 損失・Smooth L1,5,5
+death_clear,"death=1560,clear=500",1baeee50331a8c7f39c1,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=1560,clear=1560",929f8588f20877880930,double_dqn,TD 損失・Smooth L1,0,5
+death_clear,"death=1560,clear=5000",b3b9d584d88a387b8bfa,double_dqn,TD 損失・Smooth L1,0,5
+algorithm_rewards,"reference (double_dqn,reference)",3b898ced50c16dab4474,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_rewards,"dqn,reference",749868f4ef8494ecd78e,dqn,TD 損失・Smooth L1,5,5
+algorithm_rewards,"dqn,old",cea94320a3608d5f032c,dqn,TD 損失・Smooth L1,0,5
+algorithm_rewards,"dqn,game_score_only",4b212a82920f05e01281,dqn,TD 損失・Smooth L1,0,5
+algorithm_rewards,"dqn,sparse_clear",2a61fd2c1b9c3e03ebc7,dqn,TD 損失・Smooth L1,0,5
+algorithm_rewards,"double_dqn,old",3d399abfa61cdc2c23a5,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_rewards,"double_dqn,game_score_only",21dadf56fd297f55228b,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_rewards,"double_dqn,sparse_clear",f1131264bf98775fe9ee,double_dqn,TD 損失・Smooth L1,5,5
+algorithm_rewards,"sarsa,reference",24fafae3acbe8568bc24,sarsa,TD 損失・Smooth L1,5,5
+algorithm_rewards,"sarsa,old",5c7297cacca3e19d3808,sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"sarsa,game_score_only",eb09c0fc85799d0f4e9a,sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"sarsa,sparse_clear",25b09aa91350bed429c3,sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"expected_sarsa,reference",86f84e54e95d81c5c762,expected_sarsa,TD 損失・Smooth L1,5,5
+algorithm_rewards,"expected_sarsa,old",0e52555fb249fff94bcf,expected_sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"expected_sarsa,game_score_only",c122ed81d7dd72317054,expected_sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"expected_sarsa,sparse_clear",34363985077ff866215d,expected_sarsa,TD 損失・Smooth L1,0,5
+algorithm_rewards,"hra,reference",f0d61a2a27c7feac8cd0,hra,HRA 3ヘッド平均・Smooth L1,5,5
+algorithm_rewards,"hra,old",bd3194f21262ec132d39,hra,HRA 3ヘッド平均・Smooth L1,0,5
+algorithm_rewards,"hra,game_score_only",d00b91b40cae972f4766,hra,HRA 3ヘッド平均・Smooth L1,0,5
+algorithm_rewards,"hra,sparse_clear",245b19e4664f913f679c,hra,HRA 3ヘッド平均・Smooth L1,0,5
+algorithm_rewards,"ppo,reference",d5c8182efe661fba1453,ppo,PPO 複合損失,5,5
+algorithm_rewards,"ppo,old",986333b3c27bd4d0d129,ppo,PPO 複合損失,0,5
+algorithm_rewards,"ppo,game_score_only",30396ec8e23f0ba31d41,ppo,PPO 複合損失,0,5
+algorithm_rewards,"ppo,sparse_clear",f6ca2f4895a5ff733338,ppo,PPO 複合損失,0,5

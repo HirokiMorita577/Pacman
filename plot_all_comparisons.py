@@ -177,11 +177,26 @@ def write_index(out, rows, results, planned):
         local = ('<p>ローカル実験の途中モデル8件の開発評価 · '
                  '<a href="local_checkpoint_evaluation.png">グラフ</a> · '
                  '<a href="local_checkpoint_evaluation.csv">評価 CSV</a></p>')
+    has_loss = (out / "loss_coverage.csv").is_file()
+    has_episode_means = (out / "condition_averages.csv").is_file()
+    loss_intro = ""
+    if has_loss:
+        loss_intro = ('<p>学習損失 · <a href="loss_coverage.csv">条件ごとの損失ログ件数</a>')
+        if (out / "local_training_loss.png").is_file():
+            loss_intro += ' · <a href="local_training_loss.png">ローカル試行の損失曲線</a>'
+        if has_episode_means:
+            loss_intro += ' · <a href="condition_averages.csv">条件ごとの平均値</a>'
+        loss_intro += "</p>"
+    loss_header = "<th>学習損失</th>" if has_loss else ""
+    episode_header = "<th>各エピソードの平均</th>" if has_episode_means else ""
     links = "\n".join(
         f'<tr><th scope="row">{html.escape(title)} <small>{html.escape(name)}</small></th>'
         f'<td>{n_final}/{n_members}</td><td>{n_curve}/{n_members}</td>'
         f'<td><a href="figures/{name}_final.png">最終評価</a></td>'
-        f'<td><a href="figures/{name}_curve.png">学習曲線</a></td></tr>'
+        f'<td><a href="figures/{name}_curve.png">学習曲線</a></td>'
+        + (f'<td><a href="figures/{name}_loss.png">損失</a></td>' if has_loss else "")
+        + (f'<td><a href="figures/{name}_episode_mean.png">学習時の平均</a></td>' if has_episode_means else "")
+        + '</tr>'
         for name, title, n_final, n_curve, n_members in rows
     )
     (out / "index.html").write_text(f"""<!doctype html>
@@ -197,9 +212,10 @@ small{{display:block;color:#4b617b;font-weight:normal}}thead{{background:#eaf1f8
 最終評価 {total:,}件、学習seedが揃った条件 {complete}/{len(results)}件。</p>
 <p><a href="score_clear_tradeoff.png">スコア対クリア率</a> · <a href="power_gamma_heatmap.png">パワーえさ報酬×割引率</a> · <a href="final_trial_metrics.csv">試行別の最終評価 CSV</a></p>
 {local}
+{loss_intro}
 <p>各比較項目の分母は予定条件数。完了数は全予定seedに最終評価がある条件、
 曲線数は全予定seedに共通する学習エピソード範囲がある条件。条件は複数項目に登場する場合があります。</p>
-<table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>エピソード別</th></tr></thead>
+<table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>途中評価</th>{loss_header}{episode_header}</tr></thead>
 <tbody>{links}</tbody></table></html>""", encoding="utf-8")
     with (out / "final_trial_metrics.csv").open("w", encoding="utf-8-sig", newline="") as stream:
         fields = ["condition", "algorithm", "trial", "seed", "phase", "score", "clear", "episodes"]

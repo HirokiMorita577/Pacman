@@ -7,7 +7,31 @@ $outputDir = Join-Path $PSScriptRoot 'output/local_resume_rtx3060ti'
 $log = Join-Path $outputDir 'run.stdout.log'
 
 if ($Watch) {
-    Get-Content -LiteralPath $log -Tail 12 -Wait
+    $Host.UI.RawUI.WindowTitle = 'Pacman Double DQN - live progress'
+    $seen = 0
+    $status = 'Waiting for checkpoint'
+    $gpu = 'GPU usage unavailable'
+    $gpuRefresh = [datetime]::MinValue
+    while ($true) {
+        if (Test-Path -LiteralPath $log) {
+            $lines = @(Get-Content -LiteralPath $log)
+            if ($lines.Count -lt $seen) { $seen = 0 }
+            $newLines = $lines | Select-Object -Skip $seen
+            foreach ($line in $newLines) {
+                Write-Host $line
+                if ($line -like 'TRIAL_PROGRESS*') { $status = $line }
+            }
+            $seen = $lines.Count
+        }
+        $now = Get-Date
+        if ($now -ge $gpuRefresh -and (Get-Command nvidia-smi -ErrorAction SilentlyContinue)) {
+            $gpu = (nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader |
+                Select-Object -First 1)
+            $gpuRefresh = $now.AddSeconds(5)
+        }
+        Write-Progress -Activity "Pacman | $($now.ToString('HH:mm:ss')) | GPU $gpu" -Status $status
+        Start-Sleep -Seconds 1
+    }
     return
 }
 

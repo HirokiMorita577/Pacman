@@ -7,29 +7,77 @@ $outputDir = Join-Path $PSScriptRoot 'output/local_resume_rtx3060ti'
 $log = Join-Path $outputDir 'run.stdout.log'
 
 if ($Watch) {
-    $Host.UI.RawUI.WindowTitle = 'Pacman Double DQN - live progress'
-    $seen = 0
-    $status = 'Waiting for checkpoint'
+    $Host.UI.RawUI.WindowTitle = 'Pacman Double DQN - live queue'
     $gpu = 'GPU usage unavailable'
-    $gpuRefresh = [datetime]::MinValue
+    $runner = $false
+    $refresh = [datetime]::MinValue
+    $previous = ''
+    $runs = Join-Path $outputDir 'runs'
+    $errLog = Join-Path $outputDir 'run.stderr.log'
     while ($true) {
-        if (Test-Path -LiteralPath $log) {
-            $lines = @(Get-Content -LiteralPath $log)
-            if ($lines.Count -lt $seen) { $seen = 0 }
-            $newLines = $lines | Select-Object -Skip $seen
-            foreach ($line in $newLines) {
-                Write-Host $line
-                if ($line -like 'TRIAL_PROGRESS*') { $status = $line }
-            }
-            $seen = $lines.Count
-        }
         $now = Get-Date
-        if ($now -ge $gpuRefresh -and (Get-Command nvidia-smi -ErrorAction SilentlyContinue)) {
-            $gpu = (nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader |
+        if ($now -ge $refresh) {
+            $runner = [bool](Get-CimInstance Win32_Process -Filter "Name = 'python.exe'" |
+                Where-Object CommandLine -Match 'resume_local\.py(?:["\s]|$)' |
                 Select-Object -First 1)
-            $gpuRefresh = $now.AddSeconds(5)
+            if (Get-Command nvidia-smi -ErrorAction SilentlyContinue) {
+                $gpu = nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader |
+                    Select-Object -First 1
+            }
+            $refresh = $now.AddSeconds(5)
         }
-        Write-Progress -Activity "Pacman | $($now.ToString('HH:mm:ss')) | GPU $gpu" -Status $status
+        $lines = @(Get-Content -LiteralPath $log -ErrorAction SilentlyContinue)
+        $active = ''
+        foreach ($line in $lines) {
+            if ($line -match '^LOCAL_(RESUME|REUSE) ') { $active = '' }
+            if ($line -match '^TRIAL_DEVICE (\S+) ') { $active = $Matches[1] }
+        }
+        $queue = @(
+            Get-ChildItem -LiteralPath $runs -Filter migration.json -Recurse -File -ErrorAction SilentlyContinue |
+                ForEach-Object {
+                    $data = Get-Content -LiteralPath $_.FullName -Raw | ConvertFrom-Json
+                    [pscustomobject]@{ Folder = $_.Directory; Data = $data }
+                } | Sort-Object { $_.Data.resumed_at_step } -Descending
+        )
+        $position = 0
+        $table = foreach ($entry in $queue) {
+            $position++
+            $data = $entry.Data
+            $folder = $entry.Folder
+            $config = $data.local_manifest.config
+            $progressPath = Join-Path $folder.FullName 'progress.json'
+            $savedProgress = Get-Content -LiteralPath $progressPath -Raw -ErrorAction SilentlyContinue
+            $steps = $data.resumed_at_step
+            if ($savedProgress) { $steps = ($savedProgress | ConvertFrom-Json).total_steps }
+            $budget = $config.train.steps
+            $status = 'Queued'
+            if ((Test-Path -LiteralPath (Join-Path $folder.FullName 'result.json')) -and
+                (Test-Path -LiteralPath (Join-Path $folder.FullName 'evaluation_final.json'))) {
+                $status = 'Complete'
+            } elseif ($runner -and $folder.Name -eq $active) {
+                $status = if ($steps -ge $budget) { 'Evaluating' } else { 'Training' }
+            } elseif (-not $runner -and $savedProgress) {
+                $status = 'Paused'
+            }
+            [pscustomobject]@{
+                Order = $position
+                Seed = $data.local_manifest.seed
+                Saved = ('{0:N0} / {1:N0}' -f $steps, $budget)
+                Status = $status
+                Trial = $folder.Name
+            }
+        }
+        $statusText = if ($runner) { 'Running' } else { 'No training process' }
+        $tableText = $table | Format-Table -AutoSize | Out-String -Width 120
+        $recent = ($lines | Select-Object -Last 5) -join "`n"
+        $errors = (Get-Content -LiteralPath $errLog -Tail 3 -ErrorAction SilentlyContinue) -join "`n"
+        $view = "Pacman | $statusText | GPU $gpu`n$tableText`nRecent log:`n$recent"
+        if ($errors) { $view += "`n`nRecent stderr:`n$errors" }
+        if ($view -ne $previous) {
+            if (-not [Console]::IsOutputRedirected) { Clear-Host }
+            Write-Host $view
+            $previous = $view
+        }
         Start-Sleep -Seconds 1
     }
     return

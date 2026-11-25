@@ -1,0 +1,6 @@
+
+      - generic "出力を表示 / 非表示":
+        - button "出力を表示 / 非表示"
+      - generic "コードセルの出力アクション":
+        - button "コードセルの出力アクション"
+      - generic: "SOURCE_VERIFIED: 51 files; bundle 9e75afec6a09a84cf5199b2a1bc1d612747d9ad7369f7a50907222189759b0fd GPU_HARDWARE: {\"gpu\": \"NVIDIA RTX PRO 6000 Blackwell Server Edition\", \"gpu_memory_gib\": 94.97076416015625, \"cpu_count\": 48, \"cuda\": \"13.0\", \"ram_gib\": 176.88479232788086} ........................................................................ [ 48%] ........................................................................ [ 96%] ..... [100%] 149 passed in 54.38s Mounted at /content/drive GPU_DEPLOY_READY: /content/drive/MyDrive/DQN_Pacman_comparisons_gpu_20261020_9e75afec {'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'gpu_memory_gib': 94.97076416015625, 'cpu_count': 48, 'cuda': '13.0', 'ram_gib': 176.88479232788086} 66比較項目・250条件×5seed。全画像の横軸は学習回数。次のセルで全比較を開始・再開します。"

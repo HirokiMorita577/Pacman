@@ -1,0 +1,9 @@
+{
+  "last_visible_completed": 389,
+  "total_factor_trials": 1250,
+  "finished": false,
+  "runtime_check": "ACTIVE_STUDY_PIDS []; SOURCE_PRESENT False; DRIVE_CONNECTED False; new runtime b72b09018de7",
+  "restored_gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "tests": "149 passed in 59.69s",
+  "state": "Drive credential refresh awaiting user Next; training has not restarted"
+}

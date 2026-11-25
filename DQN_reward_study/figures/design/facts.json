@@ -1,0 +1,12 @@
+{
+ "rows": 22,
+ "cols": 19,
+ "pellets": 152,
+ "power_pellets": 4,
+ "N": 156,
+ "score_all_pellets": 1720,
+ "score_all_pellets_plus_ghost_each_power": 2520,
+ "steps_shortest_clear_no_ghost": 214,
+ "reward_total_dots_designed": 1520,
+ "note": "最短クリアは BFS で最寄りのエサを順に取る動き (ゴーストなし) の実測値"
+}

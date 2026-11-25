@@ -1,0 +1,2 @@
+comparison,score_difference,score_ci_low,score_ci_high,clear_rate_difference,clear_ci_low,clear_ci_high
+DQN minus SARSA,1838.8400000000001,1331.3399999999997,2292.5,0.784,0.724,0.8400000000000001

@@ -1,0 +1,566 @@
+{
+  "schema": 1,
+  "status": "plan_only_not_trained",
+  "source": "C:/PRO/Pacman/plan_long_study.py",
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "conditions": [
+    {
+      "id": "2d958cb305074b351e4f",
+      "role": "common_control",
+      "config": {
+        "algorithm": "dqn",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 50.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.95,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 128,
+          "buffer_capacity": 100000,
+          "warmup": 128,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": true,
+          "use_target": true
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "b42a1b6fe80601f1b6d6",
+      "role": "common_control",
+      "config": {
+        "algorithm": "double_dqn",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 50.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.95,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 128,
+          "buffer_capacity": 100000,
+          "warmup": 128,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": true,
+          "use_target": true
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "09df544b8105d6f3f4df",
+      "role": "common_control",
+      "config": {
+        "algorithm": "sarsa",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 50.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.95,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 1,
+          "buffer_capacity": 1,
+          "warmup": 1,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": false,
+          "use_target": false
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "893586ec94328a8ba6e0",
+      "role": "common_control_unoptimized",
+      "config": {
+        "algorithm": "q_learning",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 50.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.95,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 1,
+          "buffer_capacity": 1,
+          "warmup": 1,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": false,
+          "use_target": false
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "5f84f4c974de8ef664d8",
+      "role": "prior_exploratory_best",
+      "config": {
+        "algorithm": "dqn",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 50.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.99,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 128,
+          "buffer_capacity": 100000,
+          "warmup": 128,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": true,
+          "use_target": true
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "a6d8101c928ee4ecd10d",
+      "role": "prior_exploratory_best",
+      "config": {
+        "algorithm": "double_dqn",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 10.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.995,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 128,
+          "buffer_capacity": 100000,
+          "warmup": 128,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": true,
+          "use_target": true
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    },
+    {
+      "id": "4b204b8f30bc5af0672e",
+      "role": "prior_exploratory_best",
+      "config": {
+        "algorithm": "sarsa",
+        "env": {
+          "num_ghosts": 4,
+          "lives": 3,
+          "include_lives": true,
+          "max_steps": 1000,
+          "ghost_mode": "classic",
+          "observation_version": "tactical_safe",
+          "classic_lookahead": true
+        },
+        "rewards": {
+          "approach_dot": 1.5,
+          "leave_dot": 0.5,
+          "ghost_adjacent": 7.5,
+          "ghost_near": 2.5,
+          "chase_blue": 1.5,
+          "loop": 10.0,
+          "oscillation": 15.0,
+          "heading": 0.75,
+          "new_cell": 1.0,
+          "dot": 10.0,
+          "dot_progress": 0.0,
+          "power": 0.0,
+          "eat_ghost": 200.0,
+          "clear": 0.0,
+          "death": 100.0,
+          "time": 0.1
+        },
+        "agent": {
+          "lr": 0.0005,
+          "gamma": 0.95,
+          "hidden_sizes": [
+            512,
+            256,
+            128
+          ],
+          "activation": "relu",
+          "optimizer": "adam",
+          "loss": "huber",
+          "grad_clip": 1.0
+        },
+        "algorithm_options": {
+          "batch_size": 1,
+          "buffer_capacity": 1,
+          "warmup": 1,
+          "train_every": 1,
+          "updates_per_step": 1,
+          "target_update": 1000,
+          "target_tau": null,
+          "replay": false,
+          "use_target": false
+        },
+        "train": {
+          "steps": 1000000,
+          "explore_steps": 80000,
+          "epsilon_start": 1.0,
+          "epsilon_end": 0.0248,
+          "schedule": "exponential",
+          "reward_normalization": "pellet",
+          "reward_clip": null,
+          "eval_every": 20000,
+          "curve_episodes": 100,
+          "checkpoint_episodes": 50,
+          "mask_actions": true,
+          "bootstrap_truncation": true
+        },
+        "evaluation": {
+          "episodes": 100,
+          "dev_seed0": 2000000,
+          "final_seed0": 3000000
+        }
+      }
+    }
+  ],
+  "trials": 35,
+  "minimum_environment_steps": 35000000,
+  "evaluation_interval_steps": 20000,
+  "validation_seed_range": [
+    2000000,
+    2000099
+  ],
+  "confirmation_seed_start": 2100000,
+  "final_test_seed_range": [
+    3000000,
+    3000099
+  ],
+  "note": "Prior best settings were selected on old evaluations; new final test seeds are separate."
+}

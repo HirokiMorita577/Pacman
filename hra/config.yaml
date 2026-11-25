@@ -1,0 +1,64 @@
+# HRA (van Seijen et al., NeurIPS 2017) Ms. Pac-Man 再現 設定ファイル (NFR-04)
+#
+# 各値の出典:
+#   [本文]   論文本文       [付録A.x] 論文 supplementary (arXiv:1706.04208 の付録)
+#   [仮]     論文に記載なし。実装上の暫定値 (要件定義書の未確定事項 U-xx)
+
+experiment:
+  name: auto                # auto: 設定から自動命名 (FR-43 設定ごとに結果を分ける)
+  seed: 0                   # NFR-02
+  episodes: 11000           # [本文] は5,000。途中の不具合・方式変更のため延長。8,000 から D 方式 (step_mode=cell, ram, α=1) で継続 (DECISIONS.md)
+  checkpoint_every: 10      # NFR-01 何エピソードごとに学習状態を保存するか (Colab を細切れに使うため短め)
+  log_every: 10
+
+env:
+  game: ALE/MsPacman-v5
+  frameskip: 8              # 暫定。付録A.3はA3C節でありHRA固有の設定の根拠ではない
+  repeat_action_probability: 0.0   # ALE決定的環境 (論文当時の ALE は sticky action なし)
+  crop_top: 6               # [仮 U-01] 210x160 → 160x160 (エサの行 7〜165 がすべて入る位置)
+  cell: 4                   # [本文] 4ピクセル精度 → 40x40
+  ghost_frames: 3           # [仮 U-01] ゴーストは3フレーム周期で交互描画されるため直近3フレームを合成
+  position_source: ram      # pixels: 画面の色から抽出 / ram: ALE の RAM から読む (RM-10)。cell と組み合わせて最良だった
+  step_mode: cell           # frames: frameskip フレーム固定 / cell: 次のマスに入るまで同じ行動を続ける (DECISIONS.md)
+  cell_substep: 2           # step_mode=cell のとき、マスの移動を確かめる間隔 (フレーム)
+  cell_max_frames: 16       # step_mode=cell のとき、1ステップの上限フレーム数 (壁に向かって止まっている場合など)
+
+reward:
+  ghost_contact: -1000      # [本文] FR-10 残機を失ったときの整形報酬
+
+gvf:
+  alpha: 1.0                # [付録A.2]。step_mode=cell で遷移がほぼ決定的になったので論文どおり 1.0 (frames のときは 0.2 が良かった)
+  gamma_score: 0.99         # [付録A.2/A.4] スコア系の頭が使うGVFの割引率
+  gamma_ghost: 0.99         # [付録A.4] ゴースト系の頭が使うGVFの割引率 (独立にグリッドサーチされている)
+  target: expected_sarsa    # FR-22 expected_sarsa: 式(8) ランダム方策の価値 [付録A.2] / q_learning: 式(7)
+
+heads:
+  # [付録A.2] 各オブジェクトの頭 = そのオブジェクト位置のGVF × 倍率
+  pellet: 10
+  power_pellet: 50
+  fruit: 200
+  blue_ghost: 1000
+  ghost_linear: -1000       # 線形アグリゲーター時のゴースト倍率
+  ghost_normalized: -10     # [付録A.2] 正規化アグリゲーター時のゴースト倍率
+  snap_radius: 1            # [仮 U-03] オブジェクト位置にGVFがないとき、この距離(マス)以内の既知位置のGVFを使う
+  heading_bonus: 0.0        # [論文にない工夫] 進行方向を含む行動へのボーナス (0 で論文どおり)。往復して止まる動きを防ぐ
+
+aggregator:
+  type: normalized          # FR-26 normalized / linear   ([本文] 最良は normalized)
+  normalize: max            # [仮 U-04] "score heads を 0〜1 に正規化": max = 最大値で割る / minmax
+
+exploration:
+  diversification: true     # FR-33
+  div_max: 20.0             # [付録A.2] U(0, 20)
+  div_steps: 50             # [付録A.2] 最初の50ステップのみ
+  count_based: true         # FR-33
+  kappa: 0.1                # [仮 U-05] 式(11) Q = kappa * sqrt(N^(1/4) / n(s,a)) の係数 (論文に値なし)
+
+executive_memory:
+  enabled: false            # FR-37 (最大スコア実験のみ on。通常評価と分けて報告する: FR-36)
+  value: 1.0e+6             # [仮 U-07] "very high value"
+
+evaluation:
+  noop_max: 30              # [仮 U-08] 固定開始評価の no-op 上限 (文献の慣例値)
+  human_starts: null        # [仮 U-08] ランダム開始評価用の人間軌跡 (行動列 .npy) のパス。入手後に指定
+  episodes: 10

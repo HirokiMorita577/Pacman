@@ -1,0 +1,11 @@
+gymnasium>=1.0
+ale-py>=0.9
+numpy
+scipy
+pyyaml
+matplotlib
+imageio
+imageio-ffmpeg
+pytest
+# フルーツ収集課題のネットワーク版 (dqn, hra, hra+1) のみ
+torch

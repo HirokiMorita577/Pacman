@@ -1,0 +1,2 @@
+contrast,n_pairs,score_diff_dqn_minus_double,score_ci_low,score_ci_high,clear_diff_dqn_minus_double,clear_ci_low,clear_ci_high
+dqn_minus_double_dqn,5,53.91999999999998,-166.38000000000002,274.21999999999997,0.0040000000000000036,-0.10400000000000001,0.11200000000000002

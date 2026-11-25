@@ -1,0 +1,15 @@
+{
+  "unit_and_integration_tests": 136,
+  "test_seconds": 146.42,
+  "smoke": {
+    "expected_trials": 18,
+    "completed_trials": 18,
+    "failed_trials": 0,
+    "all_trials_accounted_for": true,
+    "final_evaluation": true,
+    "completed_conditions": 18,
+    "images": 113
+  },
+  "bundle_sha256": "3c20ffba064724062181dd97882e20b419168eb75c662d562ca4068836297efa",
+  "scope": "Functionality verification only; not research performance results"
+}

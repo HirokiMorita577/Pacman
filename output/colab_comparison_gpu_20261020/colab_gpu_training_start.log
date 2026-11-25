@@ -1,0 +1,27 @@
+
+      - generic "出力を表示 / 非表示":
+        - button "出力を表示 / 非表示"
+      - generic "コードセルの出力アクション":
+        - button "コードセルの出力アクション"
+      - generic: "CUDA_TRAINING: NVIDIA RTX PRO 6000 Blackwell Server Edition workers 8 全因子比較 → 報酬/γ/PSO/探索法比較。切断後は同じセルで再開。 保存先: /content/drive/MyDrive/DQN_Pacman_comparisons_gpu_20261020_9e75afec/results COMPARISON_PID: 24874 { \"search_groups\": 270, \"search_proposals\": 34830, \"search_environment_steps\": 2089800000, \"refit_environment_steps\": 1458000000, \"total_environment_steps\": 3800550000, \"stages\": [ \"factors\", \"search\" ], \"x_axis\": \"learning episodes\", \"finite_catalog\": true } PLAN_START conditions=250 trials=1250 environment_steps=252750000 workers=8 TRIAL_DEVICE double_dqn_45695152eca74530012a_s404 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_9894c2d67d4486fa5e4c_s303 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_7b0d5795ffcd55fc920b_s101 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_1d85c34ba6bb6cd24c22_s202 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_ba93aba31f03b479864b_s303 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_23145c871ef34cbf65a9_s505 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_6b9768ef8e5a833cdda6_s202 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_DEVICE double_dqn_8ea1bee5d4d1e4ea7c3e_s101 {'device': 'cuda', 'torch_threads': 1, 'deterministic': True, 'gpu': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'cuda': '13.0', 'capability': [12, 0]} TRIAL_PROGRESS double_dqn_8ea1bee5d4d1e4ea7c3e_s101 episode=50 steps=2327/200000 TRIAL_PROGRESS double_dqn_7b0d5795ffcd55fc920b_s101 episode=50 steps=2327/200000 TRIAL_PROGRESS double_dqn_1d85c34ba6bb6cd24c22_s202 episode=50 steps=2411/200000 TRIAL_PROGRESS double_dqn_ba93aba31f03b479864b_s303 episode=50 steps=2419/200000 TRIAL_PROGRESS double_dqn_9894c2d67d4486fa5e4c_s303 episode=50 steps=2415/200000 TRIAL_PROGRESS double_dqn_6b9768ef8e5a833cdda6_s202 episode=50 steps=2476/200000 TRIAL_PROGRESS double_dqn_45695152eca74530012a_s404 episode=50 steps=2498/200000 TRIAL_PROGRESS double_dqn_23145c871ef34cbf65a9_s505 episode=50 steps=2576/200000"
+  - link "Colab の有料サービス 新しいタブでリンクが開きます":
+    - /url: /signup?utm_source=footer&utm_medium=link&utm_campaign=footer_links
+    - text: Colab の有料サービス
+  - text: "-"
+  - link "契約解除はこちら 新しいタブでリンクが開きます":
+    - /url: /cancel-subscription
+    - text: 契約解除はこちら
+- generic "Gemini を切り替える":
+  - button "Gemini を切り替える"
+- region "ランタイム ステータスバー":
+  - button "変数":
+    - generic: 変数
+  - button "ターミナル":
+    - generic: ターミナル
+  - button "実行（1 分 13 秒）":
+    - progressbar
+    - generic: 実行（1 分 13 秒）
+  - button "G4（Python 3）":
+    - generic: G4（Python 3）
+- alert
+- alert

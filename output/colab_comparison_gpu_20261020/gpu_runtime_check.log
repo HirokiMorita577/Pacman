@@ -1,0 +1,86 @@
+- list:
+  - listitem: ; files=sorted(Path("/content/pacman_comparison_gpu_study").glob("*
+  - listitem: "*/progress.json\")); print(\"SAVED_PROGRESS\",[(p.parent.name,json.loa"
+  - listitem: ds(p.read_text())) for p in files]); print("FAILED_TRIALS",len(list
+  - listitem: (Path("/content/pacman_comparison_gpu_study").glob("**/FAILED.json"
+  - listitem: ))))'
+  - listitem: NVIDIA RTX PRO 6000 Blackwell Server Edition, 94 %, 6606 MiB
+  - listitem: 24950, 820 MiB
+  - listitem: 24946, 820 MiB
+  - listitem: 24943, 820 MiB
+  - listitem: 24952, 820 MiB
+  - listitem: 24951, 820 MiB
+  - listitem: 24948, 820 MiB
+  - listitem: 24949, 820 MiB
+  - listitem: 24947, 820 MiB
+  - listitem: "SAVED_PROGRESS [('double_dqn_1d85c34ba6bb6cd24c22_s202', {'episode'"
+  - listitem: ": 50, 'total_steps': 2411, 'budget': 200000, 'updates': 2284, 'samp"
+  - listitem: "les': 292352}), ('double_dqn_23145c871ef34cbf65a9_s505', {'episode'"
+  - listitem: ": 50, 'total_steps': 2576, 'budget': 200000, 'updates': 2449, 'samp"
+  - listitem: "les': 313472}), ('double_dqn_45695152eca74530012a_s404', {'episode'"
+  - listitem: ": 50, 'total_steps': 2498, 'budget': 200000, 'updates': 2371, 'samp"
+  - listitem: "les': 303488}), ('double_dqn_6b9768ef8e5a833cdda6_s202', {'episode'"
+  - listitem: ": 50, 'total_steps': 2476, 'budget': 200000, 'updates': 2349, 'samp"
+  - listitem: "les': 300672}), ('double_dqn_7b0d5795ffcd55fc920b_s101', {'episode'"
+  - listitem: ": 50, 'total_steps': 2327, 'budget': 200000, 'updates': 2200, 'samp"
+  - listitem: "les': 281600}), ('double_dqn_8ea1bee5d4d1e4ea7c3e_s101', {'episode'"
+  - listitem: ": 50, 'total_steps': 2327, 'budget': 200000, 'updates': 2200, 'samp"
+  - listitem: "les': 281600}), ('double_dqn_9894c2d67d4486fa5e4c_s303', {'episode'"
+  - listitem: ": 50, 'total_steps': 2415, 'budget': 200000, 'updates': 2288, 'samp"
+  - listitem: "les': 292864}), ('double_dqn_ba93aba31f03b479864b_s303', {'episode'"
+  - listitem: ": 50, 'total_steps': 2419, 'budget': 200000, 'updates': 2292, 'samp"
+  - listitem: "les': 293376})]"
+  - listitem: FAILED_TRIALS 0
+  - listitem: /content#
+  - listitem: "[0] 0:bash* \"dd4a0f44e3b9\" 00:22 21-Oct-26"
+- generic: python -c 'import json, subprocess; from pathlib import Path; subprocess.run(["nvidia-smi","--query-gpu=name,utilization.gpu,memory.used","--format=csv,noheader"]); subprocess.run(["nvidia-smi","--query-compute-apps=pid,used_memory","--format=csv,noheader"]); files=sorted(Path("/content/pacman_comparison_gpu_study").glob("**/progress.json")); print("SAVED_PROGRESS",[(p.parent.name,json.loads(p.read_text())) for p in files]); print("FAILED_TRIALS",len(list(Path("/content/pacman_comparison_gpu_study").glob("**/FAILED.json"))))'Too much output to announce, navigate to rows manually to read/content# python -c 'import json, subprocess; from pathlib import Path; subprocess.run(["nvidia-smi","--query-gpu=name,utilization.gpu,memory.used","--format=csv,noheader"]); subprocess.run(["nvidia-smi","--query-compute-apps=pid,used_memory","--format=csv,noheader"]); files=sorted(Path("/content/pacman_comparison_gpu_study").glob("**/progress.json")); print("SAVED_PROGRESS",[(p.parent.name,json.loads(p.read_text())) for p in files]); print("FAILED_TRIALS",len(list(Path("/content/pacman_comparison_gpu_study").glob("**/FAILED.json"))))' NVIDIA RTX PRO 6000 Blackwell Server Edition, 94 %, 6606 MiB 24950, 820 MiB 24946, 820 MiB 24943, 820 MiB 24952, 820 MiB 24951, 820 MiB 24948, 820 MiB 24949, 820 MiB 24947, 820 MiB
+- textbox "Terminal input"
+- generic: ; files=sorted(Path("/content/pacman_comparison_gpu_study").glob("*
+- generic: "*/progress.json\")); print(\"SAVED_PROGRESS\",[(p.parent.name,json.loa"
+- generic: ds(p.read_text())) for p in files]); print("FAILED_TRIALS",len(list
+- generic: (Path("/content/pacman_comparison_gpu_study").glob("**/FAILED.json"
+- generic: ))))'
+- generic: NVIDIA RTX PRO 6000 Blackwell Server Edition, 94 %, 6606 MiB
+- generic: 24950, 820 MiB
+- generic: 24946, 820 MiB
+- generic: 24943, 820 MiB
+- generic: 24952, 820 MiB
+- generic: 24951, 820 MiB
+- generic: 24948, 820 MiB
+- generic: 24949, 820 MiB
+- generic: 24947, 820 MiB
+- generic: "SAVED_PROGRESS [('double_dqn_1d85c34ba6bb6cd24c22_s202', {'episode'"
+- generic: ": 50, 'total_steps': 2411, 'budget': 200000, 'updates': 2284, 'samp"
+- generic: "les': 292352}), ('double_dqn_23145c871ef34cbf65a9_s505', {'episode'"
+- generic: ": 50, 'total_steps': 2576, 'budget': 200000, 'updates': 2449, 'samp"
+- generic: "les': 313472}), ('double_dqn_45695152eca74530012a_s404', {'episode'"
+- generic: ": 50, 'total_steps': 2498, 'budget': 200000, 'updates': 2371, 'samp"
+- generic: "les': 303488}), ('double_dqn_6b9768ef8e5a833cdda6_s202', {'episode'"
+- generic: ": 50, 'total_steps': 2476, 'budget': 200000, 'updates': 2349, 'samp"
+- generic: "les': 300672}), ('double_dqn_7b0d5795ffcd55fc920b_s101', {'episode'"
+- generic: ": 50, 'total_steps': 2327, 'budget': 200000, 'updates': 2200, 'samp"
+- generic: "les': 281600}), ('double_dqn_8ea1bee5d4d1e4ea7c3e_s101', {'episode'"
+- generic: ": 50, 'total_steps': 2327, 'budget': 200000, 'updates': 2200, 'samp"
+- generic: "les': 281600}), ('double_dqn_9894c2d67d4486fa5e4c_s303', {'episode'"
+- generic: ": 50, 'total_steps': 2415, 'budget': 200000, 'updates': 2288, 'samp"
+- generic: "les': 292864}), ('double_dqn_ba93aba31f03b479864b_s303', {'episode'"
+- generic: ": 50, 'total_steps': 2419, 'budget': 200000, 'updates': 2292, 'samp"
+- generic: "les': 293376})]"
+- generic: FAILED_TRIALS 0
+- generic: /content
+- generic: "#"
+- generic: "[0] 0:bash* \"dd4a0f44e3b9\" 00:22 21-Oct-26"
+- generic "Gemini を切り替える":
+  - button "Gemini を切り替える"
+- region "ランタイム ステータスバー":
+  - button "変数":
+    - generic: 変数
+  - button "ターミナル":
+    - generic: ターミナル
+  - button "実行（1 分 1 秒）":
+    - progressbar
+    - generic: 実行（1 分 1 秒）
+  - button "G4（Python 3）":
+    - generic: G4（Python 3）
+- alert
+- alert

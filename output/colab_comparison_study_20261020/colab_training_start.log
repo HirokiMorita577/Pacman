@@ -1,0 +1,17 @@
+全因子比較 → 報酬/γ/PSO/探索法比較。切断後は同じセルで再開。
+保存先: /content/drive/MyDrive/DQN_Pacman_comparisons_20261020_3c20ffba/results
+COMPARISON_PID: 17462
+{
+ "search_groups": 270,
+ "search_proposals": 34830,
+ "search_environment_steps": 2089800000,
+ "refit_environment_steps": 1458000000,
+ "total_environment_steps": 3800550000,
+ "stages": [
+  "factors",
+  "search"
+ ],
+ "x_axis": "learning episodes",
+ "finite_catalog": true
+}
+PLAN_START conditions=250 trials=1250 environment_steps=252750000 workers=2

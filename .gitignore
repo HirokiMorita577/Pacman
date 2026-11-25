@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv*/
+.chart-data-*/
+.slides_*/
+slide_work/
+.cache_params/
+*.pt
+*.pth
+*.pkl
+output/ghost4_final_*/
+output/ghost4_recovery_*/
+output/ghost4_retrain_*/
+output/ghost4_round[234]_*/
+output/comparison_*_smoke*/
+output/pytest_*/

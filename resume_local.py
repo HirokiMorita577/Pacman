@@ -89,8 +89,10 @@ def prepare(plan_path, source, out):
     if not (target.exists() or result.exists()):
         saved["manifest"] = local
         torch_save(target, saved, compressed=True)
-    print(f"LOCAL_RESUME {destination.name} source={source.name} episode={episode} "
-          f"steps={steps}/{config['train']['steps']}", flush=True)
+        print(f"LOCAL_RESUME {destination.name} source={source.name} episode={episode} "
+              f"steps={steps}/{config['train']['steps']}", flush=True)
+    else:
+        print(f"LOCAL_REUSE {destination.name} using saved local state", flush=True)
     return config, seed, destination
 
 

@@ -1,7 +1,9 @@
 """Attach the reward context to comparison figures and export exact settings."""
 import argparse
 import csv
+import html
 import json
+from itertools import groupby
 from pathlib import Path
 from textwrap import wrap
 
@@ -73,6 +75,36 @@ def annotate(path, notes):
     temporary.replace(path)
 
 
+def write_reward_table(path):
+    with path.open(encoding="utf-8-sig", newline="") as stream:
+        reader = csv.DictReader(stream)
+        columns = [key for key in reader.fieldnames if key != "comparison"]
+        headers = "".join(f"<th scope='col'>{html.escape(key)}</th>" for key in columns)
+        sections = []
+        for name, entries in groupby(reader, key=lambda row: row["comparison"]):
+            rows = []
+            for entry in entries:
+                cells = "".join(f"<td>{html.escape(entry[key]) or '—'}</td>" for key in columns)
+                rows.append(f"<tr>{cells}</tr>")
+            safe_name = html.escape(name, quote=True)
+            sections.append(f"<section id='{safe_name}'><h2>{safe_name}</h2>"
+                            f"<div><table><thead><tr>{headers}</tr></thead>"
+                            f"<tbody>{''.join(rows)}</tbody></table></div></section>")
+    path.with_suffix(".html").write_text(
+        """<!doctype html><html lang="ja"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パックマン比較実験の報酬設定</title>
+<style>
+body{font:15px/1.6 system-ui,sans-serif;margin:2rem auto;padding:0 1rem;max-width:85rem;color:#172741}
+section{margin:2.5rem 0;scroll-margin-top:1rem}section:target h2{color:#00695c}
+div{overflow-x:auto}table{border-collapse:collapse}th,td{padding:.5rem;border-bottom:1px solid #dce4ee;white-space:nowrap;text-align:left}
+thead{background:#eaf1f8}td:nth-child(n+4){text-align:right}
+</style><h1>パックマン比較実験の報酬設定</h1>
+<p><a href="index.html">全グラフ一覧へ戻る</a> · <a href="reward_settings.csv">設定表のCSV</a></p>
+<p>報酬は符号付きの重み。pellet は通常えさの報酬値で正規化。報酬クリップ欄の「—」はクリップなし。</p>
+""" + "\n".join(sections) + "</html>", encoding="utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("plan", type=Path)
@@ -94,6 +126,7 @@ def main():
                 writer.writerow([group, entry["label"], entry["condition"], cfg["algorithm"],
                                  *(signed(key, cfg["rewards"][key]) for key in REWARD_SPEC),
                                  cfg["train"]["reward_normalization"], cfg["train"]["reward_clip"]])
+    write_reward_table(args.out / "reward_settings.csv")
     for filename, note in {
         "score_clear_tradeoff.png": "条件ごとに報酬が異なる場合があります。各条件の設定は報酬設定表を参照。",
         "power_gamma_heatmap.png": "パワーえさ報酬を 0 / +10 / +50 / +200 に変更。横軸は割引率 γ。",

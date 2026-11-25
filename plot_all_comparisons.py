@@ -182,6 +182,8 @@ def write_index(out, rows, results, planned):
                   if (out / "alpha_epsilon_decay.png").is_file() else "")
     reward_link = ('<p><a href="reward_settings.csv">比較・条件ごとの報酬設定（全16項目）</a></p>'
                    if (out / "reward_settings.csv").is_file() else "")
+    has_reward_table = (out / "reward_settings.html").is_file()
+    reward_header = "<th>報酬設定表</th>" if has_reward_table else ""
     has_episode_means = (out / "condition_averages.csv").is_file()
     loss_intro = ""
     if has_loss:
@@ -200,6 +202,7 @@ def write_index(out, rows, results, planned):
         f'<td><a href="figures/{name}_curve.png">学習曲線</a></td>'
         + (f'<td><a href="figures/{name}_loss.png">損失</a></td>' if has_loss else "")
         + (f'<td><a href="figures/{name}_episode_mean.png">学習時の平均</a></td>' if has_episode_means else "")
+        + (f'<td><a href="reward_settings.html#{name}">報酬設定</a></td>' if has_reward_table else "")
         + '</tr>'
         for name, title, n_final, n_curve, n_members in rows
     )
@@ -221,7 +224,7 @@ small{{display:block;color:#4b617b;font-weight:normal}}thead{{background:#eaf1f8
 {reward_link}
 <p>各比較項目の分母は予定条件数。完了数は全予定seedに最終評価がある条件、
 曲線数は全予定seedに共通する学習エピソード範囲がある条件。条件は複数項目に登場する場合があります。</p>
-<table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>途中評価</th>{loss_header}{episode_header}</tr></thead>
+<table><thead><tr><th>比較項目</th><th>完了条件</th><th>曲線条件</th><th>スコア・クリア率</th><th>途中評価</th>{loss_header}{episode_header}{reward_header}</tr></thead>
 <tbody>{links}</tbody></table></html>""", encoding="utf-8")
     with (out / "final_trial_metrics.csv").open("w", encoding="utf-8-sig", newline="") as stream:
         fields = ["condition", "algorithm", "trial", "seed", "phase", "score", "clear", "episodes"]
